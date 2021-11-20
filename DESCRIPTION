@@ -1,0 +1,15 @@
+Package: Stockanalyzer
+Title: What the Package Does (One Line, Title Case)
+Version: 0.0.0.9000
+Authors@R: 
+    person("Steffen", "Koehler", , "Steffen.Koehler@rub.de", role = c("aut", "cre"))
+Description: What the package does (one paragraph).
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.1.2
+Imports: 
+    ggplot2,
+    quantmod,
+    rugarch,
+    shiny
