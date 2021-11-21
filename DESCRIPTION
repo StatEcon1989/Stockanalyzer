@@ -1,9 +1,9 @@
 Package: Stockanalyzer
-Title: What the Package Does (One Line, Title Case)
+Title: It analyzes stocks and the like
 Version: 0.0.0.9000
 Authors@R: 
     person("Steffen", "Koehler", , "Steffen.Koehler@rub.de", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Description: Feel free to read the title again.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
@@ -12,4 +12,5 @@ Imports:
     ggplot2,
     httr,
     rugarch,
-    shiny
+    shiny,
+    plotly

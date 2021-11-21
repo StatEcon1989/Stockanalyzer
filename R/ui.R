@@ -1,16 +1,7 @@
-#
-# This is the user-interface definition of a Shiny web application. You can
-# run the application by clicking 'Run App' above.
-#
-# Find out more about building applications with Shiny here:
-#
-#    http://shiny.rstudio.com/
-#
-
-library(shiny)
-
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(
+#' @title The UI definition for the App
+#'
+#' @import shiny
+ui <- fluidPage(
 
     # Application title
     titlePanel("Stock Analyzer"),
@@ -27,16 +18,17 @@ shinyUI(fluidPage(
                       value = "2000-01-01"),
             dateInput(inputId = "to", label = "End of Sample",
                       max = Sys.Date(), min = "1970-01-01"),
-            
+            checkboxInput("logs", label = "logs"),
+
             hr(),
-            selectInput(inputId = "preproc", label = "First Differences?",
-                        choices = c("", "first differences", "de-trending", "EWMA"))
+            selectInput(inputId = "preproc", label = "Pre-processing/Smoothing",
+                        choices = c("none", "first.differences", "de.trending", "EWMAx1", "EWMAx2"))
         ),
         # Show a plot of the generated distribution
         mainPanel(
             plotOutput("stockplot_all"),
-            plotOutput("stockplot_select"),
-            plotOutput("preprocessed")
+            # plotOutput("select_preprocessed")
+            plotly::plotlyOutput("select_preprocessed")
         )
     )
-))
+)
