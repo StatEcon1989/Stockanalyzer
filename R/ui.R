@@ -13,22 +13,30 @@ library(shiny)
 shinyUI(fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("Stock Analyzer"),
 
     # Sidebar with a slider input for number of bins
     sidebarLayout(
         sidebarPanel(
+            p(strong("Select Time-Series to Analyze")),
+            br(),
             textInput(inputId = "symbol", label = "Symbol",
                         value = "^GDAXI"),
             dateInput(inputId = "from", label = "Beginning of Sample",
-                      max = Sys.Date()),
+                      max = Sys.Date(), min = "1970-01-01",
+                      value = "2000-01-01"),
             dateInput(inputId = "to", label = "End of Sample",
-                      max = Sys.Date())
+                      max = Sys.Date(), min = "1970-01-01"),
+            
+            hr(),
+            selectInput(inputId = "preproc", label = "First Differences?",
+                        choices = c("", "first differences", "de-trending", "EWMA"))
         ),
-
         # Show a plot of the generated distribution
         mainPanel(
-            plotOutput("stockplot")
+            plotOutput("stockplot_all"),
+            plotOutput("stockplot_select"),
+            plotOutput("preprocessed")
         )
     )
 ))

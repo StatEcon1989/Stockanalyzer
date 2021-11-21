@@ -10,6 +10,6 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.2
 Imports: 
     ggplot2,
-    quantmod,
+    httr,
     rugarch,
     shiny
